@@ -5,6 +5,7 @@
   "license": "MIT",
   "author": "Swan",
   "type": "module",
+  "module": "./src/index.ts",
   "bin": {
     "mcp-server-my-little-mcp": "dist/index.js"
   },
