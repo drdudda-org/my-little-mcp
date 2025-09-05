@@ -11,16 +11,15 @@ import { randomUUID } from "crypto";
 // Helper functions
 function getCurrentTime(format: string = "locale"): string {
   const now = new Date();
-  const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000)); // KST = UTC+9
   
   switch (format) {
     case "iso":
-      return kstTime.toISOString();
+      return now.toLocaleString("sv-SE", { timeZone: "Asia/Seoul" }).replace(" ", "T") + ".000Z";
     case "timestamp":
-      return kstTime.getTime().toString();
+      return now.getTime().toString();
     case "locale":
     default:
-      return kstTime.toLocaleString("ko-KR", {
+      return now.toLocaleString("ko-KR", {
         timeZone: "Asia/Seoul",
         year: "numeric",
         month: "2-digit", 
