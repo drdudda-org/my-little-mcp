@@ -245,7 +245,8 @@ const transportArg = args.find(arg => arg.startsWith('--transport='))?.split('='
 const portArg = args.find(arg => arg.startsWith('--port='))?.split('=')[1];
 
 const transport = transportArg || 'stdio';
-const port = portArg ? parseInt(portArg) : 8004;
+// Use PORT environment variable first (Smithery compatibility), then CLI args, then default
+const port = parseInt(process.env.PORT || portArg || '8081');
 
 // Run server
 if (transport === 'http') {

@@ -13,8 +13,8 @@ COPY . .
 # Build the TypeScript project
 RUN npm run build
 
-# Expose port for HTTP transport
-EXPOSE 8004
+# Expose port for HTTP transport (Smithery uses PORT=8081)
+EXPOSE 8081
 
 # Set default command to run with HTTP transport
 CMD ["npm", "run", "start:http"]
